@@ -7,8 +7,11 @@ import { UtensilsCrossed, X, ChevronRight } from "lucide-react";
 export function CategoryNavPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeCategoryId, setActiveCategoryId] = useState<string>("");
+  const [showTopFade, setShowTopFade] = useState(false);
+  const [showBottomFade, setShowBottomFade] = useState(true);
   const popupRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Dynamic total item count across all 21 categories
   const totalItemCount = useMemo(() => {
@@ -50,6 +53,25 @@ export function CategoryNavPopup() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+    setShowTopFade(scrollTop > 0);
+    setShowBottomFade(Math.ceil(scrollTop + clientHeight) < scrollHeight);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      setTimeout(handleScroll, 50);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -142,8 +164,39 @@ export function CategoryNavPopup() {
           </div>
 
           {/* Independently Scrollable Categories List */}
-          <div className="flex-1 overflow-y-auto min-h-0 p-1.5 divide-y divide-[#79543A]/8">
-            {MENU_CATEGORIES.map((category, idx) => {
+          <div className="relative flex-1 min-h-0 flex flex-col">
+            <style>{`
+              .category-scrollbar::-webkit-scrollbar {
+                width: 6px;
+              }
+              .category-scrollbar::-webkit-scrollbar-track {
+                background: #F8F3EB;
+                border-radius: 8px;
+                margin: 4px;
+              }
+              .category-scrollbar::-webkit-scrollbar-thumb {
+                background: #A68A75;
+                border-radius: 8px;
+              }
+              .category-scrollbar::-webkit-scrollbar-thumb:hover {
+                background: #79543A;
+              }
+              .category-scrollbar {
+                scrollbar-width: thin;
+                scrollbar-color: #A68A75 #F8F3EB;
+              }
+            `}</style>
+            
+            {showTopFade && (
+              <div className="absolute top-0 left-0 right-2 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
+            )}
+
+            <div 
+              ref={scrollContainerRef}
+              onScroll={handleScroll}
+              className="flex-1 overflow-y-auto min-h-0 p-1.5 divide-y divide-[#79543A]/8 category-scrollbar"
+            >
+              {MENU_CATEGORIES.map((category, idx) => {
               const isActive = activeCategoryId === category.id;
               const itemCount =
                 (category.items?.length || 0) +
@@ -178,6 +231,11 @@ export function CategoryNavPopup() {
                 </button>
               );
             })}
+            </div>
+            
+            {showBottomFade && (
+              <div className="absolute bottom-0 left-0 right-2 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
+            )}
           </div>
         </div>
       )}

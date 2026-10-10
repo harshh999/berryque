@@ -17,8 +17,8 @@ export const BRAND_ASSETS = {
 export const CATEGORY_BANNERS: Record<string, CategoryAssetMapping> = {
   "starters-snacks": {
     categoryId: "starters-snacks",
-    imageSrc: "/images/starters-snacks.webp",
-    bannerUrl: "/images/starters-snacks.webp",
+    imageSrc: "/new%20images/starters%20and%20snacks.png",
+    bannerUrl: "/new%20images/starters%20and%20snacks.png",
     alt: "Crispy fries, nachos, potato wedges and assorted vegetarian café starters",
     altText: "Crispy fries, nachos, potato wedges and assorted vegetarian café starters",
     objectPosition: "center 45%",
@@ -26,8 +26,8 @@ export const CATEGORY_BANNERS: Record<string, CategoryAssetMapping> = {
   },
   "soups": {
     categoryId: "soups",
-    imageSrc: "/images/soups.webp",
-    bannerUrl: "/images/soups.webp",
+    imageSrc: "/new%20images/soup.png",
+    bannerUrl: "/new%20images/soup.png",
     alt: "A steaming bowl of soup with a simple café presentation",
     altText: "A steaming bowl of soup with a simple café presentation",
     objectPosition: "center 50%",
@@ -134,8 +134,8 @@ export const CATEGORY_BANNERS: Record<string, CategoryAssetMapping> = {
   },
   "indian-meals": {
     categoryId: "indian-meals",
-    imageSrc: "/images/indian-meals.webp",
-    bannerUrl: "/images/indian-meals.webp",
+    imageSrc: "/new%20images/Pav%20bhaji%20.png",
+    bannerUrl: "/new%20images/Pav%20bhaji%20.png",
     alt: "A selection of Indian café meals including aromatic biryani and butter pav bhaji",
     altText: "A selection of Indian café meals including aromatic biryani and butter pav bhaji",
     objectPosition: "center 50%",
@@ -152,8 +152,8 @@ export const CATEGORY_BANNERS: Record<string, CategoryAssetMapping> = {
   },
   "sides-accompaniments": {
     categoryId: "sides-accompaniments",
-    imageSrc: "/images/sides-accompaniments.webp",
-    bannerUrl: "/images/sides-accompaniments.webp",
+    imageSrc: "/new%20images/Papad.png",
+    bannerUrl: "/new%20images/Papad.png",
     alt: "Crispy papad, fresh raita, seasoned salad and accompaniment sides",
     altText: "Crispy papad, fresh raita, seasoned salad and accompaniment sides",
     objectPosition: "center 50%",

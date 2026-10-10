@@ -143,8 +143,8 @@ export const CATEGORY_BANNERS: Record<string, CategoryAssetMapping> = {
   },
   "khichdi-lovers": {
     categoryId: "khichdi-lovers",
-    imageSrc: "/images/khichdi-lovers.webp",
-    bannerUrl: "/images/khichdi-lovers.webp",
+    imageSrc: "/new%20images/Khichdi%20lovers.png",
+    bannerUrl: "/new%20images/Khichdi%20lovers.png",
     alt: "A warm bowl of dal tadka khichdi with a restrained Indian café presentation",
     altText: "A warm bowl of dal tadka khichdi with a restrained Indian café presentation",
     objectPosition: "center 50%",
@@ -197,8 +197,8 @@ export const CATEGORY_BANNERS: Record<string, CategoryAssetMapping> = {
   },
   "desserts": {
     categoryId: "desserts",
-    imageSrc: "/images/desserts.webp",
-    bannerUrl: "/images/desserts.webp",
+    imageSrc: "/new%20images/dessets.png",
+    bannerUrl: "/new%20images/dessets.png",
     alt: "Sizzling brownie with ice cream and artisanal berry cheesecakes",
     altText: "Sizzling brownie with ice cream and artisanal berry cheesecakes",
     objectPosition: "center 50%",
